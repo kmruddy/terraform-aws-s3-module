@@ -12,4 +12,9 @@ module "aws_s3" {
 
   bucket = "terraform-webinar-${random_pet.bucket_name.id}"
   region = var.aws_region
+
+  tags = {
+    Terraform   = "true"
+    Environment = "dev"
+  }
 }
