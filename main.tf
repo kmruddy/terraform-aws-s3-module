@@ -7,7 +7,7 @@ resource "random_pet" "bucket_name" {
   separator = "-"
 }
 
-module "aws_s3" {
+resource "aws_s3" {
   source = "terraform-aws-modules/s3-bucket/aws"
 
   bucket = "terraform-webinar-${random_pet.bucket_name.id}"
