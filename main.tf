@@ -7,14 +7,7 @@ resource "random_pet" "bucket_name" {
   separator = "-"
 }
 
-resource "aws_s3" {
-  source = "terraform-aws-modules/s3-bucket/aws"
-
+resource "aws_s3_bucket" "random_bucket" {
   bucket = "terraform-webinar-${random_pet.bucket_name.id}"
   region = var.aws_region
-
-  tags = {
-    Terraform   = "true"
-    Environment = "dev"
-  }
 }
